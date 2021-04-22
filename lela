@@ -1,0 +1,48 @@
+import java.util.Random;
+
+public class Main {
+
+
+
+
+    public static void main(String[] args) {
+        int[] arr = generate();
+        for(int i=1;i<100;i+=10){
+            System.out.printf("%s \t%s %s \t%s",i,"-",(i+9), "| ");
+            checkArr(arr,i,i+9);
+        }
+
+    }
+
+
+    public static int[] generate(){
+        Random random = new Random();
+        int lower = 50;
+        int higher = 100;
+        int length = random.nextInt(higher-lower) + lower;
+
+        int[] arr = new int[length];
+
+        for(int i=0;i<arr.length;i++){
+            arr[i] = random.nextInt(100) + 1;
+        }
+
+
+        return arr;
+    }
+
+    public static void checkArr(int[] arr,int lower, int higher){
+        int count = 0;
+        for(int i = 0;i<arr.length;i++){
+            if(arr[i] >= lower && arr[i] <= higher ){
+                count++;
+            }
+        }
+        while(count > 0){
+            System.out.print("*");
+            count--;
+        }
+        System.out.println();
+    }
+
+    }
